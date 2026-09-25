@@ -61,12 +61,15 @@ def main():
 
         inventory = process_delivery(inventory, result)
 
+        history.append(result)
+
         if inventory > Max_inventory_limit:
             print("Inventory limit exceeded. Cannot add more stock.")
             break
 
     tax_amount = calculate_tax(inventory)
     print("Total tax on inventory:", tax_amount)
+    print(history)
 
     generate_reports(inventory, failed_entries)
 
